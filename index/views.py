@@ -2,7 +2,7 @@
 from django.shortcuts import render
 
 def index (request) :
-    return render (request, 'index.html', {})
+    return render (request, 'index/index.html', {})
 
 
 def plantilla (request) :
@@ -10,6 +10,7 @@ def plantilla (request) :
     datos = {
         'lista': ['primero', 'segundo', 'tercero'],
         'nombre': 'Juancho',
+        'apellido': 'Martinez'
     }
      
-    return render (request, 'plantilla.html', datos)
+    return render (request, 'index/plantilla.html', datos)
