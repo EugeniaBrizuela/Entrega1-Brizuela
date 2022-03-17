@@ -1,6 +1,6 @@
 from django.contrib import admin
-from profesionales.models import Cerrajero, Futbolista
+from profesionales.models import Blog, InfoUsuario, Tienda
 
-
-admin.site.register (Cerrajero)
-admin.site.register(Futbolista)
+admin.site.register (Blog)
+admin.site.register (InfoUsuario)
+admin.site.register (Tienda)

@@ -1,18 +1,26 @@
 from django.db import models
 
-# Create your models here.
-
-
-class Cerrajero (models.Model):
+class Blog (models.Model):
+    nombre = models.CharField (max_length=20)
+    apellido = models.CharField (max_length=30)
+    fecha_publicacion = models.DateField ()
+    elemento = models.CharField (max_length=30)
+    publicacion = models.TextField (max_length=200)
+    
+    
+class InfoUsuario (models.Model):
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=30)
-    desempleado = models.BooleanField()
+    tejedor = models.BooleanField()
+    ocupacion = models.CharField (max_length=40)
     
-
-class Futbolista (models.Model):
+    
+class Tienda (models.Model):
    nombre = models.CharField(max_length=20)
-   apellido = models.CharField(max_length=30)
-   club_futbol = models.CharField(max_length=50)
+   precio = models.IntegerField ()
+   caracteristicas = models.TextField (max_length=50)
+   creadora = models.CharField (max_length=20)
+   
 
 
     
