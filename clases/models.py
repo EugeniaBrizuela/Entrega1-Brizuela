@@ -10,7 +10,7 @@ class Blog (models.Model):
     publicacion = models.TextField (max_length=100)
 
     def __self__ ():
-        return f'{self.nombre} {self.apellido} {self.titulo}'
+       return f'{self.titulo}'
         
     
     

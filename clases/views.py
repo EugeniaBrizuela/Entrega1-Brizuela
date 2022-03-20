@@ -3,8 +3,8 @@ from .forms import BlogFormulario, UsuarioFormulario, TiendaFormulario
 from .models import Blog, Usuario, Tienda
 from django.shortcuts import redirect
 
-# Create your views here.
 def crear_blog (request):
+    
     if request.method == 'POST':
     
       form = BlogFormulario (request.POST)
@@ -17,6 +17,8 @@ def crear_blog (request):
       
     form = BlogFormulario ()      
     return render (request, 'clases/crear_blog.html', {'form': form})
+           
+           
            
            
 def crear_usuario (request):
