@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>Del Farol Tiendita</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -22,23 +22,29 @@
             <div class="container">
                 <a class="navbar-brand" href={% url 'index' %}>Indice</a>
                 <a class="navbar-brand" href={% url 'plantilla' %}>Nosotras</a>
+                <a class="navbar-brand" href={% url 'crear_blog' %}>Crear Blog</a>
+                {% comment %} <a class="navbar-brand" href={% url 'crear_usuario' %}>Crear Usuario</a>
+                <a class="navbar-brand" href={% url 'crear_tienda' %}>Crear Tienda</a>
+                <a class="navbar-brand" href={% url 'lista_tienda' %}>Lista Tienda</a> {% endcomment %}
             </div>
         </nav>
         <!-- Masthead-->
+        {% block 'header_block' %}
         <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            {% block 'header_block' %}
+                            {% block 'header_text_block' %}
                             <h1 class="mb-5">¡Bienvenidos a Del Farol Tiendita!</h1>
-                            {% endblock 'header_block' %}
+                            {% endblock 'header_text_block' %}
                         </div>
                     </div>
                 </div>
             </div>
         </header>  
+        {% endblock 'header_block' %}
         
         
         {% block 'body_block' %}
