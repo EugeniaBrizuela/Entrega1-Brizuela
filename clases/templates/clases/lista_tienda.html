@@ -1,0 +1,25 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+{% endblock 'header_block' %}
+
+{% block 'body_block' %}
+
+    <form action = "" method = 'get'>
+    
+    {% csrf_token %}
+    
+    <table>
+      {{form.as_table}}    
+     </table> 
+     <button>Crear</button> 
+    
+    </form>
+
+    {% for producto in lista_tienda  %}
+    
+    <li>{{producto}}</li>
+
+    {% endfor %}
+
+{% endblock 'body_block' %}

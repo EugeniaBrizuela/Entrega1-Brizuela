@@ -25,5 +25,11 @@ class TiendaFormulario (forms.Form):
     precio = forms.IntegerField ()
     caracteristicas = forms.CharField(max_length=100)
     creadora = forms.CharField (max_length=20)
-   
+
+
+
+class TiendaBusqueda (forms.Form):
+    nombre = forms.CharField (max_length=20)
+    
+       
     

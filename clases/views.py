@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import BlogFormulario, UsuarioFormulario, TiendaFormulario
+from .forms import BlogFormulario, UsuarioFormulario, TiendaFormulario, TiendaBusqueda
 from .models import Blog, Usuario, Tienda
 from django.shortcuts import redirect
 
@@ -52,3 +52,16 @@ def crear_tienda (request):
       
     form = TiendaFormulario ()      
     return render (request, 'clases/crear_tienda.html', {'form': form})
+
+
+
+def lista_tienda (request):
+    nombre_a_buscar= request.GET.get ('titulo', None)
+    if nombre_a_buscar is not None:
+        producto = Tienda.objects.filter (titulo__icontains=nombre_a_buscar)
+    else:
+        producto = Tienda.objects.all
+    
+    form = TiendaBusqueda ()
+    return render (request, 'clases/lista_tienda.html', {'form': form, 'producto': producto})
+
