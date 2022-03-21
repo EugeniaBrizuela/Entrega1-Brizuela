@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Del Farlo Tiendita</title>
+        <title>Del Farol Tiendita</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -22,30 +22,33 @@
             <div class="container px-4 px-lg-5">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href='index'>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href='plantilla'>Nosotras</a></li>
-                        <li class="nav-item"><a class="nav-link" href='crear_blog'>Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href='crear_usuario'>Crear usuario</a></li>
-                        <li class="nav-item"><a class="nav-link" href='crear_tienda'>Crear Tienda</a></li>
-                        <li class="nav-item"><a class="nav-link" href='lista_tienda'>Lista tienda</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'plantilla' %}>Nosotras</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'crear_blog' %}>Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'crear_usuario' %}>Crear usuario</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'crear_tienda' %}>Crear producto</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'lista_tienda' %}>Tienda</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
         {% block 'head_block' %}
+
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
-                        {% block 'head_text_block' %}
+                        {% block 'header_text_block' %}
                         <h1 class="mx-auto my-0 text-uppercase">Del Farol Tiendita</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Crochet y porcelanas.</h2>
-                        {% endblock 'head_text_block' %}
+                        {% endblock 'header_text_block' %}
                     </div>
                 </div>
             </div>
+        
         </header>
+        
         {% endblock 'head_block' %}
 
         

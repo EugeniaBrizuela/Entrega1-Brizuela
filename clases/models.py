@@ -8,9 +8,10 @@ class Blog (models.Model):
     titulo = models.CharField(max_length=20)
     publicacion = models.TextField (max_length=100)
 
-    def __self__ ():
-       return f'{self.titulo} {self.fecha}'
+    def __str__ (self):
+       return f'{self.titulo}'
         
+    
     
     
 class Usuario (models.Model):
@@ -19,9 +20,11 @@ class Usuario (models.Model):
     email = models.EmailField (max_length=50)
     tejedor = models.BooleanField()
     
-    def __self__ ():
-        return f'{self.nombre} {self.apellido}'
+    def __str__ (self):
+           return f'{self.nombre} {self.apellido}'
 
+   
+   
     
 class Tienda (models.Model):
    nombre = models.CharField(max_length=20)
@@ -29,8 +32,9 @@ class Tienda (models.Model):
    caracteristicas = models.TextField (max_length=100)
    creadora = models.CharField (max_length=20)
    
-   def __self__ ():
-       return f'{self.nombre}{self.creadora}'
+   def __str__ (self):
+       return f'{self.nombre} {self.creadora}'
+   
     
 
     

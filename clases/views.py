@@ -56,12 +56,14 @@ def crear_tienda (request):
 
 
 def lista_tienda (request):
-    nombre_a_buscar= request.GET.get ('titulo', None)
+    nombre_a_buscar= request.GET.get ('nombre', None)
+    
     if nombre_a_buscar is not None:
-        producto = Tienda.objects.filter (titulo__icontains=nombre_a_buscar)
+        
+        productos = Tienda.objects.filter (nombre__icontains=nombre_a_buscar)
     else:
-        producto = Tienda.objects.all
+        productos = Tienda.objects.all
     
     form = TiendaBusqueda ()
-    return render (request, 'clases/lista_tienda.html', {'form': form, 'producto': producto})
+    return render (request, 'clases/lista_tienda.html', {'form': form, 'productos': productos})
 
