@@ -1,7 +1,7 @@
-1- Ingresar a la página de inicio.
+1- Ingresar a la página 'Inicio'.
 2- Ingresar a la página 'Sobre nosotras'.
 3- Acceder al formulario de 'Registrate' para crear un usuario.
-4- Completar datos del formulario y cargar la información del usuario.
+4- Completar datos del formulario y cargar la información del nuevo usuario.
 5- Acceder a la página 'Blog' para crear una publicación.
 6- Completar datos del formulario y cargar la información de anécdota/comentario que se desea cargar.
 7- Acceder a 'Consultas' para cargar preguntas.
