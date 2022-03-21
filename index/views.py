@@ -5,12 +5,10 @@ def index (request) :
     return render (request, 'index/index.html', {})
 
 
-def plantilla (request) :
+def sobre_nosotras (request) :
     
     datos = {
-        'lista': ['primero', 'segundo', 'tercero'],
-        'nombre': 'Juancho',
-        'apellido': 'Martinez'
+        
     }
      
-    return render (request, 'index/plantilla.html', datos)
+    return render (request, 'index/sobre_nosotras.html', datos)

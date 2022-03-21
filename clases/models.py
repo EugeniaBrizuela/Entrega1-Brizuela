@@ -6,7 +6,7 @@ class Blog (models.Model):
     nombre = models.CharField (max_length=20)
     apellido = models.CharField (max_length=30)
     titulo = models.CharField(max_length=20)
-    publicacion = models.TextField (max_length=100)
+    publicacion = models.TextField (max_length=300)
 
     def __str__ (self):
        return f'{self.titulo}'
@@ -33,7 +33,7 @@ class Tienda (models.Model):
    creadora = models.CharField (max_length=20)
    
    def __str__ (self):
-       return f'{self.nombre} {self.creadora}'
+       return f'{self.nombre}'
    
     
 

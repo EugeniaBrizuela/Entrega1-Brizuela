@@ -4,5 +4,5 @@ from .import views
 
 urlpatterns = [
     path('', views.index, name ='index'),
-    path('plantilla/', views.plantilla, name ='plantilla')
+    path('sobre_nosotras/', views.sobre_nosotras, name ='sobre_nosotras')
 ]
