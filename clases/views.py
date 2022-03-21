@@ -11,7 +11,7 @@ def crear_blog (request):
       
       if form.is_valid ():
           data = form.cleaned_data
-          blog = Blog (nombre = data ['nombre'], apellido = data ['apellido'], fecha_publicacion = data ['fecha_publicacion'], titulo = data ['titulo'], publicacion = data ['publicacion'])
+          blog = Blog (nombre = data ['nombre'], apellido = data ['apellido'], titulo = data ['titulo'], publicacion = data ['publicacion'])
           blog.save()
           return redirect ('index')
       

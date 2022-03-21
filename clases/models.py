@@ -5,12 +5,11 @@ from django.db import models
 class Blog (models.Model):
     nombre = models.CharField (max_length=20)
     apellido = models.CharField (max_length=30)
-    fecha_publicacion = models.DateTimeField ()
     titulo = models.CharField(max_length=20)
     publicacion = models.TextField (max_length=100)
 
     def __self__ ():
-       return f'{self.titulo}'
+       return f'{self.titulo} {self.fecha}'
         
     
     
