@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import BlogFormulario, UsuarioFormulario, TiendaFormulario, TiendaBusqueda
-from .models import Blog, Usuario, Tienda
+from .forms import BlogFormulario, UsuarioFormulario, TiendaFormulario, TiendaBusqueda, ConsultasFormulario
+from .models import Blog, Usuario, Tienda, Consultas
 from django.shortcuts import redirect
 
 def crear_blog (request):
@@ -36,6 +36,19 @@ def crear_usuario (request):
     return render (request, 'clases/crear_usuario.html', {'form': form})
 
 
+def crear_consultas (request):
+    if request.method == 'POST':
+    
+      form = ConsultasFormulario (request.POST)
+      
+      if form.is_valid ():
+          data = form.cleaned_data
+          consulta = Consultas (nombre = data ['nombre'], apellido = data ['apellido'], email= data ['email'], pregunta = data ['pregunta'])
+          consulta.save()
+          return redirect ('index')
+      
+    form = ConsultasFormulario ()      
+    return render (request, 'clases/crear_consultas.html', {'form': form})
 
 
 

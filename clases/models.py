@@ -25,7 +25,18 @@ class Usuario (models.Model):
 
    
    
+class Consultas (models.Model):
+    nombre = models.CharField (max_length=20)
+    apellido = models.CharField (max_length=30)
+    email = models.EmailField (max_length=50)
+    pregunta = models.TextField (max_length=200)
     
+    def __str__(self):
+        return f'{self.nombre} {self.pregunta}'
+    
+    
+    
+        
 class Tienda (models.Model):
    nombre = models.CharField(max_length=20)
    precio = models.IntegerField ()
