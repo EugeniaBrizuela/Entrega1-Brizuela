@@ -1,26 +1,11 @@
+
 from django.shortcuts import render
-from .forms import ProfesionalFormulario, EstudianteFormulario, EstudianteBusqueda, ConsultasFormulario
+from .forms import EstudianteFormulario, EstudianteBusqueda, ConsultasFormulario, ProfesionalFormulario
 from .models import Profesional, Estudiante, Consultas
 from django.shortcuts import redirect
-
-           
-           
-           
-           
-def crear_profesional (request):
-    if request.method == 'POST':
-    
-      form = ProfesionalFormulario (request.POST)
-      
-      if form.is_valid ():
-          data = form.cleaned_data
-          profesional = Profesional (nombre = data ['nombre'], apellido = data ['apellido'], especialidad = data ['especialidad'])
-          profesional.save()
-          return redirect ('index')
-      
-    form = ProfesionalFormulario ()      
-    return render (request, 'clases/crear_profesional.html', {'form': form})
-
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView 
+from django.views.generic.edit import UpdateView, DeleteView, CreateView 
 
 def crear_consultas (request):
     if request.method == 'POST':
@@ -65,4 +50,50 @@ def lista_estudiante (request):
     
     form = EstudianteBusqueda ()
     return render (request, 'clases/lista_estudiante.html', {'form': form, 'estudiantes': estudiantes})
+
+
+def crear_profesional (request):
+    if request.method == 'POST':
+    
+      form = ProfesionalFormulario (request.POST)
+      
+      if form.is_valid ():
+          data = form.cleaned_data
+          profesional = Profesional (nombre = data ['nombre'], apellido = data ['apellido'], especialidad = data ['especialidad'])
+          profesional.save()
+          return redirect ('index')
+      
+    form = ProfesionalFormulario ()      
+    return render (request, 'clases/crear_profesional.html', {'form': form})
+
+
+class ProfesionalLista (ListView):
+    model = Profesional
+    template_name = 'clases/profesional_lista.html'
+    
+
+
+class ProfesionalDetalle (DetailView):
+    model = Profesional
+    template_name = 'clases/profesional_detalle.html'
+
+
+
+class ProfesionalEditar (UpdateView):
+    model = Profesional
+    fields = ['nombre', 'apellido', 'especialidad']
+
+
+class ProfesionalBorrar (DeleteView):
+    model = Profesional
+
+
+
+
+class ProfesionalCrear (CreateView):
+    model = Profesional
+    fields = ['nombre', 'apellido', 'especialidad']
+        
+        
+    
 

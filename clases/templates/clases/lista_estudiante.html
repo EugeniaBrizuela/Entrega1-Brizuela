@@ -1,8 +1,9 @@
 {% extends 'index/index.html' %}
 
 {% block 'header_text_block' %}
-      <h1 class="masthead-heading mb-0">Tienda</h1>
-      <h2 class="masthead-subheading mb-0">Lista de productos.</h2>  
+    <h1 class="mx-auto my-0 text-uppercase">Estudiantes asociados</h1>
+    <h2 class="text-white-50 mx-auto mt-2 mb-5">Aventureros en camino al mundo profesional.</h2>
+
 {% endblock 'header_text_block' %}
 
 
@@ -10,25 +11,30 @@
 
 {% block 'body_block' %}
 
-    <form action = "" method = 'get'>
-    
-    {% csrf_token %}
-    
-    <table>
-      {{form.as_table}}    
-     </table> 
-     <button>Buscar</button> 
-    
-    </form>
+  <p>
+     <a href={% url 'crear_estudiante' %}>Crear estudiante<a/>
 
-    {% for producto in productos  %}
-    
-    <li>
-    
-      {{producto}}
-    
-    </li>
+  </p>
 
-    {% endfor %}
+<form action=''method='get'>
+  
+  {% csrf_token %}
+  
+  <table>
+    
+    {{form.as_table}}
+  
+  </table>
 
+  <button>Buscar</button>
+
+</form>
+
+   
+  {% for estudiantes in estudiantes %}
+
+   <li> {{estudiantes}} </li>
+
+  {% endfor %}
+  
 {% endblock 'body_block' %}

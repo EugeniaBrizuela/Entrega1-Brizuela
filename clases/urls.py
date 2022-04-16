@@ -3,8 +3,13 @@ from .import views
 
 
 urlpatterns = [
-    path('crear_profesional/', views.crear_profesional, name = 'crear_profesional'),
     path('crear_consultas/', views.crear_consultas, name = 'crear_consultas'),
-    path('crear_estudiante/', views.crear_estudiante, name = 'crear_estudiante'),
-    path('lista_estudiante/', views.lista_estudiante, name = 'lista_estudiante')
+    path('estudiante/', views.lista_estudiante, name = 'estudiante'),
+    path('estudiante/crear/', views.crear_estudiante, name = 'crear_estudiante'),
+    path('profesional/', views.ProfesionalLista.as_view(), name = 'profesional_lista'),
+    path('profesional/crear/', views.crear_profesional, name = 'profesional_crear'),
+    path('profesional/<int:pk>/detalle/', views.ProfesionalDetalle.as_view(), name = 'profesional_detalle'),
+    path('profesional/<int:pk>/editar/', views.ProfesionalEditar.as_view(), name = 'profesional_editar'),
+    path('profesional/<int:pk>/borrar/', views.ProfesionalBorrar.as_view(), name = 'profesional_borrar')
+    
 ]

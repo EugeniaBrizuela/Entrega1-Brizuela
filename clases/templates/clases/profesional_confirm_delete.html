@@ -1,0 +1,33 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_text_block' %}
+    <h1 class="mx-auto my-0 text-uppercase">Profesionales asociados</h1>
+    <h2 class="text-white-50 mx-auto mt-2 mb-5">Aventureros de la Tierra.</h2>
+
+{% endblock 'header_text_block' %}
+
+
+
+
+{% block 'body_block' %}
+
+
+  <p>
+
+    <a href={% url 'profesional' %}>Volver<a/>
+    
+  </p> 
+  <p>
+      <form action=''method='post'>
+          {% csrf_token %}
+
+          Usted quiere borrar el profesional {{object}}??
+      </form>
+
+  <p>
+      <li>Nombre:{{object.nombre}}</li>
+      <li>Apellido:{{object.apellido}}</li>
+      <li>Especialidad:{{object.especialidad}}</li>
+
+  
+{% endblock 'body_block' %}

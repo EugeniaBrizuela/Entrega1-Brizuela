@@ -1,0 +1,30 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_text_block' %}
+    <h1 class="mx-auto my-0 text-uppercase">Profesionales asociados</h1>
+    <h2 class="text-white-50 mx-auto mt-2 mb-5">Aventureros de la Tierra.</h2>
+
+{% endblock 'header_text_block' %}
+
+
+
+
+{% block 'body_block' %}
+
+
+  <p>
+      <li>
+       <a href={% url 'profesional_crear' %}>Crear profesional<a/>
+       <a href={% url 'profesional_detalle' profesional.id %}>{{profesional}}<a/> |
+       <a href={% url 'profesional_editar' profesional.id %}>Editar<a/> |
+       <a href={% url 'profesional_borrar' profesional.id %}>Borrar<a/> |
+      </li>
+  </p>   
+
+  {% for profesionales in profesionales_lista %}
+
+   <li> {{profesional}} </li>
+
+  {% endfor %}
+  
+{% endblock 'body_block' %}

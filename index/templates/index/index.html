@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Grayscale - Start Bootstrap Theme</title>
+        <title>Geologiando</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -28,11 +28,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'sobre_nosotras' %}>Sobre nosotras</a></li>
-                        
-                        <li class="nav-item"><a class="nav-link" href={% url 'crear_profesional' %}>Registrate</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'sobre_mi' %}>Sobre mi</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'crear_consultas' %}>Consultas</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'lista_estudiante' %}>Tienda</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'profesional_lista' %}>Profesionales </a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'estudiante' %}>Estudiantes</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,9 +43,9 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         {% block 'header_text_block' %}
-                        <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                        <a class="btn btn-primary" href="#about">Get Started</a>
+                        <h1 class="mx-auto my-0 text-uppercase">Geologiando</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Aventuras de viajes de campo.</h2>
+                        
                         {% endblock 'header_text_block' %}
                     </div>
                 </div>
