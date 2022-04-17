@@ -11,20 +11,20 @@
 
 {% block 'body_block' %}
 
+    <p>
+        <a href={% url 'profesional_crear' %}>Crear profesional</a> 
+    </p>
 
-  <p>
-      <li>
-       <a href={% url 'profesional_crear' %}>Crear profesional<a/>
-       <a href={% url 'profesional_detalle' profesional.id %}>{{profesional}}<a/> |
-       <a href={% url 'profesional_editar' profesional.id %}>Editar<a/> |
-       <a href={% url 'profesional_borrar' profesional.id %}>Borrar<a/> |
-      </li>
-  </p>   
+    {% for profesional in object_list %}
+    
+    <li>
+        {{profesional}}
 
-  {% for profesionales in profesionales_lista %}
+        <a href={% url 'profesional_detalle' profesional.id %}>Ver más</a> |
+        <a href={% url 'profesional_editar' profesional.id %}>Editar</a> |
+        <a href={% url 'profesional_borrar' profesional.id %}>Borrar</a> |
+    </li>
+    {% endfor %}
 
-   <li> {{profesional}} </li>
-
-  {% endfor %}
   
 {% endblock 'body_block' %}

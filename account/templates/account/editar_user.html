@@ -1,0 +1,40 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_text_block' %}
+   <h1 class="mx-auto my-0 text-uppercase">Editar usuario</h1>
+   
+{% endblock 'header_text_block' %}
+
+{% block 'body_block' %}
+
+<p>
+    <h2>Editar usuario</h2>
+</p>
+
+<p>
+
+    {% if msj %}
+
+       {{msj}}
+
+    {% endif %}
+
+</p>
+
+ 
+    <form action="" method ="post">
+        
+        {% csrf_token %}
+        
+        <table>
+
+            {{form.as_table}}  
+
+        </table> 
+
+        <button>Guardar</button> 
+        
+    </form>
+
+
+{% endblock 'body_block' %}

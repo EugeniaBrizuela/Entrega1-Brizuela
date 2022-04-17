@@ -29,6 +29,13 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'sobre_mi' %}>Sobre mi</a></li>
+                        {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Cerrar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'editar' %}>Editar usuario</a></li>
+                        {% comment %} {% else %} {% endcomment %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'registrarse' %}>Registrarse</a></li>
+                        {% comment %} {% endif %} {% endcomment %}
                         <li class="nav-item"><a class="nav-link" href={% url 'crear_consultas' %}>Consultas</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'profesional_lista' %}>Profesionales </a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'estudiante' %}>Estudiantes</a></li>

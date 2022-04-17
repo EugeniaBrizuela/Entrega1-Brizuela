@@ -14,7 +14,7 @@
 
   <p>
 
-    <a href={% url 'profesional' %}>Volver<a/>
+    <a href={% url 'profesional_lista' %}>Volver</a>
     
   </p> 
   <p>
@@ -22,12 +22,11 @@
           {% csrf_token %}
 
           Usted quiere borrar el profesional {{object}}??
+          <button>Borrar</button>
+          
       </form>
 
   <p>
-      <li>Nombre:{{object.nombre}}</li>
-      <li>Apellido:{{object.apellido}}</li>
-      <li>Especialidad:{{object.especialidad}}</li>
-
+      
   
 {% endblock 'body_block' %}

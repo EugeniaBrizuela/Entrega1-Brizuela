@@ -8,7 +8,7 @@
 
 <p>
 
-  <a href={% url 'profesional' %}>Volver</a>
+  <a href={% url 'profesional_lista' %}>Volver</a>
 
 </p>
   
@@ -17,6 +17,7 @@
     {% csrf_token %}
     
     <table>
+      {{form.media}}
       {{form.as_table}}    
      </table> 
      <button>Crear</button> 
