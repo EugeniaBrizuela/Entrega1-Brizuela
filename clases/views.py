@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
+@login_required
 def crear_consultas (request):
     if request.method == 'POST':
     
@@ -26,7 +26,7 @@ def crear_consultas (request):
     return render (request, 'clases/crear_consultas.html', {'form': form})
 
 
-
+@login_required
 def crear_estudiante (request):
     if request.method == 'POST':
     
@@ -55,7 +55,7 @@ def lista_estudiante (request):
     form = EstudianteBusqueda ()
     return render (request, 'clases/lista_estudiante.html', {'form': form, 'estudiantes': estudiantes})
 
-
+@login_required
 def crear_profesional (request):
     if request.method == 'POST':
     
@@ -87,13 +87,13 @@ class ProfesionalDetalle (DetailView):
 
 
 
-class ProfesionalEditar (UpdateView):
+class ProfesionalEditar (LoginRequiredMixin, UpdateView):
     model = Profesional
     success_url = '/clases/profesional/'
     fields = ['nombre', 'apellido', 'especialidad']
 
 
-class ProfesionalBorrar (DeleteView):
+class ProfesionalBorrar (LoginRequiredMixin, DeleteView):
     model = Profesional
     success_url = '/clases/profesional/'
 

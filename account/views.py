@@ -62,7 +62,7 @@ def registrarse (request):
 
 
     
-
+@login_required
 def editar_usuario (request):
     user_extension_logued, _ = UserExtension.objects.get_or_create(user=request.user)
     
@@ -100,7 +100,10 @@ def editar_usuario (request):
             'descripcion': user_extension_logued.descripcion
         })
     return render(request, 'account/editar_usuario.html', {'form': form})    
-    
+
+@login_required    
+def datos_usuario (request):
+    return render(request, 'account/datos_usuario.html', {})
     
     
   

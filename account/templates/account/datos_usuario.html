@@ -1,7 +1,7 @@
 {% extends 'index/index.html' %}
 
 {% block 'header_text_block' %}
-   <h1 class="mx-auto my-0 text-uppercase">Editar usuario</h1>
+   <h1 class="mx-auto my-0 text-uppercase">Datos usuario</h1>
    
 {% endblock 'header_text_block' %}
 
@@ -15,10 +15,19 @@
 
     {% endif %}
 
+
+<p>
+
+    <li>{{request.user.first_name}}</li>
+    <li>{{request.user.last_name}}</li>
+    <li>{{request.user.email}}</li>
+    <li><img src="{{request.user.userextension.avatar.url}}" alt='imagen de perfil'></li>
+    <li>{{request.user.userextension.link}}</li>
+
 </p>
 
  
-    <form action={% url 'editar_usuario' %} method ='post' enctype='multipart/form-data'>
+    <form href={% url 'editar_usuario' %}>Editar usuario</a>
         
         {% csrf_token %}
         

@@ -31,6 +31,9 @@
                         <li class="nav-item"><a class="nav-link" href={% url 'about' %}>Acerca de mi</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Cerrar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'datos_usuario' %}></a></li>
+                            {% comment %} <img src= "{{request.user.userextension.avatar.url}}" alt="" height='30px'>
+                            {{request.user.username}} </a></li>  {% endcomment %}
                         <li class="nav-item"><a class="nav-link" href={% url 'editar_usuario' %}>Editar usuario</a></li> 
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar Sesión</a></li>
