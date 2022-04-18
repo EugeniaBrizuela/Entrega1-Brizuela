@@ -36,7 +36,7 @@ class Estudiante (models.Model):
    carrera = models.CharField(max_length=50)
    
    def __str__ (self):
-        return f'{self.apellido} {self.carrera}'
+        return f'{self.nombre} {self.apellido} {self.carrera}'
    
     
 

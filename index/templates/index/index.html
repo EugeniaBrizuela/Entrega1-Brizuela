@@ -27,8 +27,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Home</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'about' %}>Acerca de mi</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'blog_lista' %}>Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'profesional_lista' %}>Profesionales</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'estudiante' %}>Estudiantes</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Cerrar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'datos_usuario' %}>
@@ -44,10 +47,7 @@
                         <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'registrarse' %}>Registrarse</a></li>
                         {% endif %}
-                        <li class="nav-item"><a class="nav-link" href={% url 'blog_lista' %}>Blogs</a></li>
                         {% comment %} <li class="nav-item"><a class="nav-link" href={% url 'crear_consultas' %}>Consultas</a></li> {% endcomment %}
-                        <li class="nav-item"><a class="nav-link" href={% url 'profesional_lista' %}>Profesionales</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'estudiante' %}>Estudiantes</a></li>
                     </ul>
                 </div>
             </div>

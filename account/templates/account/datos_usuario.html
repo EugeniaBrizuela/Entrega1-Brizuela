@@ -21,8 +21,9 @@
     <li>Nombre:{{request.user.first_name}}</li>
     <li>Apellido{{request.user.last_name}}</li>
     <li>Email:{{request.user.email}}</li>
+    <li>Descripción:{{request.user.userextension.descripcion}}</li>
     {% if request.user.userextension.avatar %}
-    <li><img src="{{request.user.userextension.avatar.url}}" alt='imagen de perfil'></li>
+    <img src="{{request.user.userextension.avatar.url}}" alt='imagen de perfil' height="300">
     {% endif %}
     <li>Link de linkedin:{{request.user.userextension.link}}</li>
 
