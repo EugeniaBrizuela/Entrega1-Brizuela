@@ -5,10 +5,10 @@ def index (request) :
     return render (request, 'index/index.html', {})
 
 
-def sobre_mi (request) :
+def about (request) :
     
     datos = {
         
     }
      
-    return render (request, 'index/sobre_mi.html', datos)
+    return render (request, 'index/about.html', datos)

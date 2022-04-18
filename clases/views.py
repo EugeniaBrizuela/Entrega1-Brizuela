@@ -5,9 +5,11 @@ from .models import Profesional, Estudiante, Consultas
 from django.shortcuts import redirect
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView 
-from django.views.generic.edit import UpdateView, DeleteView, CreateView 
+from django.views.generic.edit import UpdateView, DeleteView 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 def crear_consultas (request):
     if request.method == 'POST':
@@ -53,7 +55,7 @@ def lista_estudiante (request):
     form = EstudianteBusqueda ()
     return render (request, 'clases/lista_estudiante.html', {'form': form, 'estudiantes': estudiantes})
 
-@login_required
+
 def crear_profesional (request):
     if request.method == 'POST':
     
@@ -85,13 +87,13 @@ class ProfesionalDetalle (DetailView):
 
 
 
-class ProfesionalEditar (LoginRequiredMixin, UpdateView):
+class ProfesionalEditar (UpdateView):
     model = Profesional
     success_url = '/clases/profesional/'
     fields = ['nombre', 'apellido', 'especialidad']
 
 
-class ProfesionalBorrar (LoginRequiredMixin, DeleteView):
+class ProfesionalBorrar (DeleteView):
     model = Profesional
     success_url = '/clases/profesional/'
 

@@ -11,19 +11,16 @@ class NuestroUserForm (UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
-        helps_text = {k: '' for k in fields}
+        helps_text = { k: '' for k in fields}
         
-
-
-class NuestraEdicionUser ():
+class EditFullUser (forms.Form):
+    email = forms.EmailField()
+    avatar = forms.ImageField(required=False)
+    link = forms.URLField(required=False)
+    descripcion = forms.CharField(max_length=200)
+    first_name = forms.CharField(label='Nombre', max_length=20)
+    last_name = forms.CharField(label='Apellido', max_length=20)
+    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput(), required=False)
+    password2 = forms.CharField(label='Repetir contraseña', widget=forms.PasswordInput(), required=False)
     
-    email = forms.EmailField ()
-    nombre = forms.CharField (label='Nombre', max_length=20, required=False)
-    apellido = forms.CharField (label='Apellido', max_length=30)
-    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput())
-    password2 = forms.CharField(label='Repetir contraseña', widget=forms.PasswordInput())
-    
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'nombre', 'apellido', 'password1', 'password2']
-        helps_text = {k: '' for k in fields}   
+

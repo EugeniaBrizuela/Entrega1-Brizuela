@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
-from .forms import NuestroUserForm, NuestraEdicionUser
+from .forms import NuestroUserForm, EditFullUser
 from django.contrib.auth.decorators import login_required
+from .models import UserExtension
+
 
 def mi_login (request):
     
@@ -13,20 +15,20 @@ def mi_login (request):
         login_form= AuthenticationForm (request, data = request.POST)
         
         if login_form.is_valid ():
-            username = login_form.cleaned_data.get ('username')
-            password = login_form.cleaned_data.get ('password')
+            username = login_form.cleaned_data ['username']
+            password = login_form.cleaned_data['password']
             
             user = authenticate (username = username, password = password)
             
-            if user is not None ():
+            # if user is not None ():
+                 
+            login (request, user)
+            return redirect ('index')
                 
-                login (request, user)
-                
-                return render(request, 'index/index.html', {'msj': 'Bienvenido {username}'})
-                # return redirect ('inicio')
-            else:
-                # msj= 'El usuario no se ha podido autenticar'
-                return render (request, 'account/login.html', {'login_form': login_form, 'msj': 'El usuario no se pudo autenticar'})
+            # return render(request, 'index/index.html', {'msj': 'Bienvenido '})
+        # else:
+        #         # msj= 'El usuario no se ha podido autenticar'
+        #         return render (request, 'account/login.html', {'login_form': login_form, 'msj': 'El usuario no se pudo autenticar'})
         
         else:
             # msj='El formulario no es válido'
@@ -48,7 +50,7 @@ def registrarse (request):
         if form.is_valid():
            username = form.cleaned_data ['username']
            form.save()
-           return render(request, 'inicio/index.html', {'msj': f'Se creó correctamente el usuario {username}'})
+           return render(request, 'index/index.html', {'msj': f'SE CREÓ CORRECTAMENTE EL USUARIO {username}'})
        
         else:
             return render (request, 'account/registrarse.html', {'form': form, 'msj': 'El formulario no es válido'})
@@ -60,44 +62,47 @@ def registrarse (request):
 
 
     
-@login_required
 
-def editar (request):
-    
-    msj = ''
+def editar_usuario (request):
+    user_extension_logued, _ = UserExtension.objects.get_or_create(user=request.user)
     
     if request.method == 'POST':
-        form = NuestraEdicionUser (request.POST)
+        form = EditFullUser (request.POST, request.FILES)
         
         if form.is_valid():
+            request.user.email = form.cleaned_data['email']
+            request.user.first_name = form.cleaned_data['first_name']
+            request.user.last_name = form.cleaned_data['last_name']
+            user_extension_logued.avatar = form.cleaned_data['avatar']
+            user_extension_logued.link = form.cleaned_data['link']
+            user_extension_logued.descripcion = form.cleaned_data['descripcion']
             
-            data = form.cleaned_data
+            if form.cleaned_data['password1'] != '' and form.cleaned_data['password1'] == form.cleaned_data['password2']:
+                request.user.set_password(form.cleaned_data['password1'])
             
-            logued_user = request.user
-            logued_user.email = data.get('email')
-            logued_user.nombre = data.get('nombre', '')
-            logued_user.apellido = data.get('apellido', '')
+            request.user.save()
+            user_extension_logued.save()
             
-            if data.get('password1') == data.get('password2') and len(data.get('password1')) > 10:
-                
-                logued_user.set_password(data.get('password1'))
-            
-            else:
-                msj = 'No se ha modificado el password.'
-            
-            logued_user.save()
-            return render(request, 'inicio/index.html', {'msj': msj })
+            return redirect('index')
         
         else:
-            return render(request, 'account/editar_user.html', {'form': form, 'msj': ''})
+            return render(request, 'account/editar_usuario.html', {'form': form, 'msj': 'El formulario no es válido'})
     
-    form = NuestraEdicionUser(
+    form = EditFullUser (
         initial={
-            'username': request.user.username,
-            'first_name': request.user.nombre,
-            'last_name': request.user.apellido,
-            'email': request.user.email
+            'email': request.user.email,
+            'password1': '',
+            'password2': '',
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'avatar': user_extension_logued.avatar,
+            'link': user_extension_logued.link,
+            'descripcion': user_extension_logued.descripcion
         })
-    return render(request, 'account/editar_user.html', {'form': form, 'msj': ''})
+    return render(request, 'account/editar_usuario.html', {'form': form})    
+    
+    
+    
+  
 
              

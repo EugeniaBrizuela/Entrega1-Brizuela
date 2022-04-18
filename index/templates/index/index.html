@@ -28,14 +28,14 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href={% url 'index' %}>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'sobre_mi' %}>Sobre mi</a></li>
-                        {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'about' %}>Acerca de mi</a></li>
+                        {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Cerrar Sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'editar' %}>Editar usuario</a></li>
-                        {% comment %} {% else %} {% endcomment %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'editar_usuario' %}>Editar usuario</a></li> 
+                        {% else %}
                         <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'registrarse' %}>Registrarse</a></li>
-                        {% comment %} {% endif %} {% endcomment %}
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link" href={% url 'crear_consultas' %}>Consultas</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'profesional_lista' %}>Profesionales </a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'estudiante' %}>Estudiantes</a></li>
@@ -50,9 +50,12 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         {% block 'header_text_block' %}
+                        {% if msj %}
+                          {{msj}}
+                        {% else %}
                         <h1 class="mx-auto my-0 text-uppercase">Geologiando</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Aventuras de viajes de campo.</h2>
-                        
+                        {% endif %}
                         {% endblock 'header_text_block' %}
                     </div>
                 </div>

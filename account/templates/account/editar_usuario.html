@@ -8,10 +8,6 @@
 {% block 'body_block' %}
 
 <p>
-    <h2>Editar usuario</h2>
-</p>
-
-<p>
 
     {% if msj %}
 
@@ -22,7 +18,7 @@
 </p>
 
  
-    <form action="" method ="post">
+    <form action={% url 'editar_usuario' %} method ='post' enctype='multipar/form-data'>
         
         {% csrf_token %}
         
@@ -32,7 +28,7 @@
 
         </table> 
 
-        <button>Guardar</button> 
+        <button>Guardar cambios</button> 
         
     </form>
 

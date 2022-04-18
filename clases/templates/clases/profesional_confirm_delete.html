@@ -2,7 +2,7 @@
 
 {% block 'header_text_block' %}
     <h1 class="mx-auto my-0 text-uppercase">Profesionales asociados</h1>
-    <h2 class="text-white-50 mx-auto mt-2 mb-5">Aventureros de la Tierra.</h2>
+    <h2 class="text-white-50 mx-auto mt-2 mb-5">Eliminar.</h2>
 
 {% endblock 'header_text_block' %}
 
@@ -21,9 +21,9 @@
       <form action=''method='post'>
           {% csrf_token %}
 
-          Usted quiere borrar el profesional {{object}}??
+          Usted quiere borrar al profesional {{object}}??
           <button>Borrar</button>
-          
+
       </form>
 
   <p>
