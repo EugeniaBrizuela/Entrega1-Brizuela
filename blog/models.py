@@ -2,7 +2,8 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils import timezone
 
-# Create your models here.
+
+
 class Blogs (models.Model):
     titulo = models.CharField(max_length=30)
     subtitulo = models.CharField(max_length=30)
@@ -14,5 +15,5 @@ class Blogs (models.Model):
     
     
     def __str__(self):
-        return f'{self.titulo}-{self.resumen}'
+        return f'{self.titulo} {self.resumen}'
     
