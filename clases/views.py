@@ -65,7 +65,7 @@ def crear_profesional (request):
           data = form.cleaned_data
           profesional = Profesional (nombre = data ['nombre'], apellido = data ['apellido'], especialidad = data ['especialidad'])
           profesional.save()
-          return redirect ('index')
+          return redirect ('profesional_lista')
       
     form = ProfesionalFormulario ()      
     return render (request, 'clases/profesional_crear.html', {'form': form})

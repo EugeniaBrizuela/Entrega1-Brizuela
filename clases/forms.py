@@ -1,8 +1,5 @@
 from django import forms
-
-
-
-    
+  
     
 
 class ProfesionalFormulario (forms.Form):

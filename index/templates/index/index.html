@@ -31,16 +31,22 @@
                         <li class="nav-item"><a class="nav-link" href={% url 'about' %}>Acerca de mi</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Cerrar Sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'datos_usuario' %}></a></li>
-                            {% comment %} <img src= "{{request.user.userextension.avatar.url}}" alt="" height='30px'>
-                            {{request.user.username}} </a></li>  {% endcomment %}
-                        <li class="nav-item"><a class="nav-link" href={% url 'editar_usuario' %}>Editar usuario</a></li> 
+                        <li class="nav-item"><a class="nav-link" href={% url 'datos_usuario' %}>
+                            {% if request.user.userextension.avatar %}
+                            <img src= "{{request.user.userextension.avatar.url}}" alt="imagen de perfil" height='20px'>
+                            {{request.user.username}} 
+                            {% else %}
+                            {{request.user.username}}
+                            {% endif %} 
+                        </a></li>  
+                        {% comment %} <li class="nav-item"><a class="nav-link" href={% url 'editar_usuario' %}>Editar usuario</a></li>  {% endcomment %}
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'registrarse' %}>Registrarse</a></li>
                         {% endif %}
-                        <li class="nav-item"><a class="nav-link" href={% url 'crear_consultas' %}>Consultas</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'profesional_lista' %}>Profesionales </a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'blog_lista' %}>Blogs</a></li>
+                        {% comment %} <li class="nav-item"><a class="nav-link" href={% url 'crear_consultas' %}>Consultas</a></li> {% endcomment %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'profesional_lista' %}>Profesionales</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'estudiante' %}>Estudiantes</a></li>
                     </ul>
                 </div>

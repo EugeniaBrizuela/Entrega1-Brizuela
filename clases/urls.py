@@ -3,7 +3,7 @@ from .import views
 
 
 urlpatterns = [
-    path('crear_consultas/', views.crear_consultas, name = 'crear_consultas'),
+    # path('crear_consultas/', views.crear_consultas, name = 'crear_consultas'),
     path('estudiante/', views.lista_estudiante, name = 'estudiante'),
     path('estudiante/crear/', views.crear_estudiante, name = 'crear_estudiante'),
     path('profesional/', views.ProfesionalLista.as_view(), name = 'profesional_lista'),

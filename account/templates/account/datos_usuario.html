@@ -21,25 +21,17 @@
     <li>{{request.user.first_name}}</li>
     <li>{{request.user.last_name}}</li>
     <li>{{request.user.email}}</li>
+    {% if request.user.userextension.avatar %}
     <li><img src="{{request.user.userextension.avatar.url}}" alt='imagen de perfil'></li>
+    {% endif %}
     <li>{{request.user.userextension.link}}</li>
 
 </p>
 
- 
-    <form href={% url 'editar_usuario' %}>Editar usuario</a>
-        
-        {% csrf_token %}
-        
-        <table>
+<p> 
+    <a href={% url 'editar_usuario' %}>Editar datos de usuario</a>
 
-            {{form.as_table}}  
-
-        </table> 
-
-        <button>Guardar cambios</button> 
-        
-    </form>
+</p>        
 
 
 {% endblock 'body_block' %}

@@ -1,0 +1,36 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_text_block' %}
+    <h1 class="mx-auto my-0 text-uppercase">Blogs</h1>
+    <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
+
+{% endblock 'header_text_block' %}
+
+
+
+
+{% block 'body_block' %}
+
+    <p>
+        <a href={% url 'blog_crear' %}>Crear un nuevo blog</a> 
+    </p>
+{% if blog %}
+
+ {% for blog in object_list %}
+
+  <li>
+    {{blog}}
+    
+    <a href={% url 'blog_detalle' blog.id %}>Leer más</a> |
+    <a href={% url 'blog_editar' blog.id %}>Editar</a> |
+    <a href={% url 'blog_borrar' blog.id %}>Borrar</a> |
+  </li>
+ {% endfor %}
+
+{% else %}
+
+ <h4> No hay blogs aún. </h4> 
+ 
+{% endif %}
+  
+{% endblock 'body_block' %}

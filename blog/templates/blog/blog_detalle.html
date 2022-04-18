@@ -1,0 +1,34 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_text_block' %}
+    <h1 class="mx-auto my-0 text-uppercase">Blogs </h1>
+    <h2 class="text-white-50 mx-auto mt-2 mb-5">{{titulo}}.</h2>
+
+{% endblock 'header_text_block' %}
+
+
+
+
+{% block 'body_block' %}
+
+
+  <p>
+
+    <a href={% url 'blog_lista' %}>Volver<a/>
+    
+  </p> 
+  
+  <p>
+      <li>Título:{{object.titulo}}</li>
+      <li>Subtítulo:{{object.subtitulo}}</li>
+      <li>Cuerpo:{{object.cuerpo | safe }}</li>
+      <li><img src "{{object.imagen}}"alt="imagen publicacion"></li> 
+      <li>Autor:{{object.autor}}</li>
+      <li>Fecha de publicación:{{object.fecha_publicacion | date:'d-m-Y H:m'}}</li>
+
+
+  </p>
+  
+
+
+{% endblock 'body_block' %}
