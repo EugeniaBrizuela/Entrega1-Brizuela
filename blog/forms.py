@@ -11,4 +11,4 @@ class BlogsFormulario (forms.Form):
     imagen = forms.ImageField(required=False)
     resumen = forms.CharField(max_length=100)
     autor = forms.CharField(max_length=30)
-    fecha_publicacion = forms.DateTimeField()
+    

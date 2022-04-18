@@ -11,16 +11,18 @@ from .models import Blogs
 def crear_blog (request):
     
     if request.method == 'POST':
-      form = BlogsFormulario (request.POST)
-      
-      if form.is_valid ():
-          data = form.cleaned_data
-          blog = Blogs (titulo = data ['titulo'], subtitulo = data ['subtitulo'], cuerpo = data ['cuerpo'], imagen = data ['imagen'], resumen = data ['resumen'], autor = data ['autor'], fecha_publicacion = data ['fecha_publicacion'])
-          blog.save()
-          return redirect ('blog_lista')
-      
-    form = BlogsFormulario ()      
-    return render (request, 'blog/blog_crear.html', {'form': form})
+        form = BlogsFormulario (request.POST, request.FILES)
+        
+        if form.is_valid():
+            data = form.cleaned_data
+            blog = Blogs (titulo=data['titulo'], subtitulo=data['subtitulo'], cuerpo=data['cuerpo'], imagen=data['imagen'], resumen=data['resumen'], autor=data['autor'])
+            blog.save()
+            return redirect('blog_lista')
+
+        
+    form = BlogsFormulario()
+    return render(request, 'blog/blog_crear.html', {'form': form})
+
 
 
 

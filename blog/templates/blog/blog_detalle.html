@@ -2,7 +2,7 @@
 
 {% block 'header_text_block' %}
     <h1 class="mx-auto my-0 text-uppercase">Blogs </h1>
-    <h2 class="text-white-50 mx-auto mt-2 mb-5">{{titulo}}.</h2>
+    <h2 class="text-white-50 mx-auto mt-2 mb-5">Detalles.</h2>
 
 {% endblock 'header_text_block' %}
 
@@ -21,8 +21,10 @@
   <p>
       <li>Título:{{object.titulo}}</li>
       <li>Subtítulo:{{object.subtitulo}}</li>
-      <li>Cuerpo:{{object.cuerpo | safe }}</li>
-      <li><img src "{{object.imagen}}"alt="imagen publicacion"></li> 
+      {{object.cuerpo | safe }}
+      {% if object.imagen %}
+      <img src="{{object.imagen.url}}"  width="400" height="400">
+      {% endif %} 
       <li>Autor:{{object.autor}}</li>
       <li>Fecha de publicación:{{object.fecha_publicacion | date:'d-m-Y H:m'}}</li>
 

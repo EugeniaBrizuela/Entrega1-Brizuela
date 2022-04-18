@@ -15,28 +15,24 @@
         <a href={% url 'blog_crear' %}>Crear un nuevo blog</a> 
 </p>    
 
-<p> 
-
- {% if blog %} 
-  {{blog}}
-  {% for blog in object_list %}
-
-  <li>
-    
-    {{blog}}
-    
-         <a href={% url 'blog_detalle' blog.id %}>Leer más</a> |
-         <a href={% url 'blog_editar' blog.id %}>Editar</a> |
-         <a href={% url 'blog_borrar' blog.id %}>Borrar</a> |
-
-  </li>
-  {% endfor %}
-
- {% else %}
-
- <h4> No hay blogs aún. </h4> 
  
-{% endif %}
 
-</p> 
+
+      {% for blog in object_list %}
+  
+        <li>
+              {{blog}}
+            
+    
+                  <a href={% url 'blog_detalle' blog.id %}>Leer más</a> | 
+                  <a href={% url 'blog_editar' blog.id %}>Editar</a> |
+                  <a href={% url 'blog_borrar' blog.id %}>Borrar</a> |
+
+        </li>
+
+      {% endfor %}
+
+ 
+ 
+ 
 {% endblock 'body_block' %}
